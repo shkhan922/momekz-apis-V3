@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post",
+    "name": "post"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false
+    },
+    "post_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post-category.post-category",
+      "mappedBy": "posts"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
